@@ -1,0 +1,133 @@
+@font-face {
+  font-family: plain-light;
+  src: url(./plain-light.ttf);
+}
+
+@font-face {
+  font-family: plain-regular;
+  src: url(./plain-regular.ttf);
+}
+
+@font-face {
+  font-family: silkserif-light;
+  src: url(./silkserif-light.ttf);
+}
+
+@font-face {
+  font-family: silkserif-regular;
+  src: url(./silkserif-regular.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: "plain-light";
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin-top: 0.1px;
+  background-color: black;
+}
+
+#loader {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  background-color: #020202;
+  padding: 21vh 10vw;
+}
+
+.line {
+  /* background-color: red; */
+  height: fit-content;
+  margin-bottom: 2px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2vw;
+}
+
+#line1-part1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4vw;
+}
+
+#line1-part1 h5,
+h6 {
+  font-size: 4vw;
+  font-family: "silkserif-regular";
+  font-weight: 500;
+}
+#line1-part1 h5 {
+  width: 7vw;
+  /* background-color: tomato; */
+  text-align: left;
+}
+
+.line h1 {
+  font-size: 7vw;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.line h2 {
+  font-size: 5.4vw;
+  text-transform: uppercase;
+  font-family: "silkserif-regular";
+}
+
+#main {
+  position: relative;
+  background-color: black;
+}
+
+/*------------------------- page1 -----------------------------*/
+
+#page1 {
+  height: 100vh;
+  width: 100%;
+  background-color: #151515;
+}
+/* ----------------nav------------------------ */
+
+#page1 #nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3vw 6vw;
+}
+
+#nav-part2 ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5vw;
+}
+
+#nav-part2 ul a {
+  font-size: 1vw;
+}
+
+/*-------------------- hero ----------------------------*/
+
+.hero {
+  background-color: red;
+}
+
+.hero h1{
+  font-size: 7vw;
+}
