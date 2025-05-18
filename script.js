@@ -61,7 +61,7 @@ function loadingAnimation() {
     opacity: 0,
   });
   tl.from(".hero h1, #hero3 h2", {
-    y: 100,
+    y: 200,
     stagger: 0.2,
   });
 }
