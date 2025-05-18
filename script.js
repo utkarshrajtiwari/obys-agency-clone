@@ -57,6 +57,25 @@ function loadingAnimation() {
   tl.to("#loader", {
     display: "none",
   });
+  tl.from("#nav", {
+    opacity: 0,
+  });
+  tl.from(".hero h1, #hero3 h2", {
+    y: 100,
+    stagger: 0.2,
+  });
+}
+
+function crsrMagnetAnimation() {
+  document.addEventListener("mousemove", function (dets) {
+    gsap.to("#crsr", {
+      left: dets.x,
+      top: dets.y,
+    });
+  });
+
+  Shery.makeMagnet("#nav-part2 li", {});
 }
 
 loadingAnimation();
+crsrMagnetAnimation();
