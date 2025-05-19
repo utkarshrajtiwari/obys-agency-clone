@@ -56,7 +56,7 @@ body {
   height: 100%;
   width: 100%;
   position: fixed;
-  z-index: 999;
+  z-index: 100;
   background-color: #020202;
   padding: 21vh 10vw;
 }
@@ -79,12 +79,18 @@ body {
   gap: 0.4vw;
 }
 
-#line1-part1 h5,
-h6 {
+#line1-part1 h5 {
   font-size: 4vw;
   font-family: "silkserif-regular";
   font-weight: 500;
 }
+
+#line1-part1 h6 {
+  font-size: 4vw;
+  font-family: "silkserif-regular";
+  font-weight: 500;
+}
+
 #line1-part1 h5 {
   width: 7vw;
   /* background-color: tomato; */
@@ -105,7 +111,7 @@ h6 {
 
 #main {
   position: relative;
-  background-color: #232323;
+  background-color: #151515;
 }
 
 /*------------------------- page1 -----------------------------*/
@@ -218,7 +224,7 @@ h6 {
   position: absolute;
   top: -10%;
   left: 70%;
-  z-index: 999;
+  z-index: 90;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -229,8 +235,56 @@ h6 {
 #page3 {
   min-height: 100vh;
   width: 100%;
-  background-color: rgb(51, 51, 51);
+  background-color: #151515;
   position: relative;
+  padding: 7vh 2vw;
+}
+
+#page3 h1 {
+  font-size: 7vw;
+  position: relative;
+  margin-left: 28vw;
+}
+
+#page3 .underline {
+  margin-left: 28vw;
+}
+
+#image-div-container {
+  background-color: violet;
+  padding: 3vw 4vw;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 3vw;
+}
+.image-div {
+  position: relative;
+  overflow: hidden;
+  height: 33vw;
+  width: 24vw;
+  background-color: aqua;
+  flex-shrink: 0;
+}
+
+.image-div img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.page3-circle {
+  height: 20vw;
+  width: 20vw;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.page3-circle svg {
+  height: 40%;
 }
 
 /*----------------------------- page4--------------------------------------- */
@@ -319,9 +373,9 @@ h6 {
 }
 
 .elem {
-  background-color: red;
+  /* background-color: red; */
   white-space: nowrap;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 .elem h1 {
@@ -332,18 +386,86 @@ h6 {
   color: transparent;
   display: inline-block;
   margin-right: 1.5vw;
-  animation-name: "infiscroll";
-  animation-duration: 1s;
+  animation-name: infiscroll;
+  animation-duration: 13s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
 @keyframes infiscroll {
-  to {
+  from {
     transform: translateX(0);
   }
 
-  from {
-    transform: translateX(-100);
+  to {
+    transform: translateX(calc(-100% - 1.5vw));
   }
 }
+
+.elem2 {
+  /* background-color: red; */
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+
+.elem2 h1 {
+  font-size: 6vw;
+  -webkit-text-stroke: 1px white;
+  font-weight: 100;
+  color: transparent;
+  display: inline-block;
+  transform: translateX(calc(-100% - 1.6vw));
+  margin-right: 1.5vw;
+  animation-name: infiscroll;
+  animation-duration: 13s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+}
+
+/*------------------------- footer ----------------------------*/
+
+#footer {
+  height: 80vh;
+
+  /* background-color: violet; */
+  position: relative;
+  width: 71.2vw;
+  left: 28%;
+  padding-right: 2vw;
+}
+
+#footer h1 {
+  font-size: 7vw;
+}
+.underline {
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  margin: 2vw 0;
+}
+
+#footer-div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-right: 15vw;
+  padding-top: 4vw;
+  margin-bottom: 6vw;
+}
+
+#footer-div h6 {
+  font-size: 1.4vw;
+  margin-bottom: 1.5vw;
+}
+
+#footer-div h5 {
+  font-size: 1.2vw;
+  margin: 0.2vh 0;
+  font-weight: 500;
+}
+
+/* ._canvas_container {
+  z-index: 99999 !important;
+  pointer-events: none;
+} */
