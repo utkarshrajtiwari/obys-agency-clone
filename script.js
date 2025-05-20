@@ -118,12 +118,28 @@ function crsrMagnetAnimation() {
   });
 
   Shery.makeMagnet("#nav-part2 li", {});
+  var videoContainer = document.querySelector("#video-container");
+  videoContainer.addEventListener("mouseenter", function () {
+    videoContainer.addEventListener("mousemove", function (dets) {
+      gsap.to("#crsr", {
+        display: "none",
+      });
+      gsap.to("#video-cursor", {
+        left: dets.x - 500,
+        top: dets.y - 350,
+      });
+    });
+  });
+  videoContainer.addEventListener("mouseleave", function () {
+    gsap.to("#crsr", {
+      display: "initial",
+    });
+    gsap.to("#video-cursor", {
+      left: "70%",
+      top: "-10%",
+    });
+  });
 }
-// locomotiveAnimation();
-
-loadingAnimation();
-
-crsrMagnetAnimation();
 
 function sheryAnimation() {
   Shery.imageEffect(".image-div", {
@@ -132,5 +148,9 @@ function sheryAnimation() {
     gooey: true,
   });
 }
+
+loadingAnimation();
+
+crsrMagnetAnimation();
 
 sheryAnimation();
