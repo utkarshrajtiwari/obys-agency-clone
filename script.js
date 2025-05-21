@@ -118,27 +118,18 @@ function crsrMagnetAnimation() {
   });
 
   Shery.makeMagnet("#nav-part2 li", {});
+  // -------------------------------------------------------
   var videoContainer = document.querySelector("#video-container");
+  var video = document.querySelector("#video-container video");
   videoContainer.addEventListener("mouseenter", function () {
-    videoContainer.addEventListener("mousemove", function (dets) {
-      gsap.to("#crsr", {
-        display: "none",
-      });
-      gsap.to("#video-cursor", {
-        left: dets.x - 500,
-        top: dets.y - 350,
-      });
-    });
+    video.play();
+    video.style.opacity = 1;
   });
   videoContainer.addEventListener("mouseleave", function () {
-    gsap.to("#crsr", {
-      display: "initial",
-    });
-    gsap.to("#video-cursor", {
-      left: "70%",
-      top: "-10%",
-    });
+    video.pause();
+    video.style.opacity = 0;
   });
+  // -----------------------------------------------
 }
 
 function sheryAnimation() {
@@ -149,8 +140,33 @@ function sheryAnimation() {
   });
 }
 
+function flagAnimation() {
+  document.addEventListener("mousemove", function (dets) {
+    gsap.to("#flag", {
+      x: dets.x - 100,
+      y: dets.y - 150,
+    });
+  });
+
+  document.querySelector("#hero3").addEventListener("mouseenter", function () {
+    gsap.to("#flag", {
+      display: "initial",
+      opacity: 1,
+    });
+  });
+
+  document.querySelector("#hero3").addEventListener("mouseleave", function () {
+    gsap.from("#flag", {
+      display: "none",
+      opacity: 0,
+    });
+  });
+}
+
 loadingAnimation();
 
 crsrMagnetAnimation();
 
 sheryAnimation();
+
+flagAnimation();

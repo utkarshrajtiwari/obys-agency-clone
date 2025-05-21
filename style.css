@@ -1,21 +1,21 @@
 @font-face {
   font-family: plain-light;
-  src: url(./plain-light.ttf);
+  src: url(./fonts/plain-light.ttf);
 }
 
 @font-face {
   font-family: plain-regular;
-  src: url(./plain-regular.ttf);
+  src: url(./fonts/plain-regular.ttf);
 }
 
 @font-face {
   font-family: silkserif-light;
-  src: url(./silkserif-light.ttf);
+  src: url(./fonts/silkserif-light.ttf);
 }
 
 @font-face {
   font-family: silkserif-regular;
-  src: url(./silkserif-regular.ttf);
+  src: url(./fonts/silkserif-regular.ttf);
 }
 
 * {
@@ -32,21 +32,21 @@ a {
   text-decoration: none;
 }
 
+html,
 body {
-  height: 100%;
+  margin: 0;
+  padding: 0;
   width: 100%;
-  margin-top: 0.1px;
-  background-color: black;
-  overflow-x: hidden;
+  height: 100%;
+  overflow-x: hidden; /* Horizontal scroll ko disable karne ke liye */
 }
-
 #crsr {
   height: 2.3vw;
   width: 2.3vw;
   color: transparent;
   border: 2.5px solid rgba(255, 255, 255, 0.684);
   border-radius: 50%;
-  z-index: 99;
+  z-index: 999;
   position: fixed;
   mix-blend-mode: difference;
   transform: translate(10%, 20%);
@@ -56,7 +56,7 @@ body {
   height: 100%;
   width: 100%;
   position: fixed;
-  z-index: 100;
+  z-index: 1000;
   background-color: #020202;
   padding: 21vh 10vw;
 }
@@ -185,6 +185,21 @@ body {
   font-weight: 100;
 }
 
+#flag {
+  height: 25vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -100;
+  display: none;
+}
+
+#hero3 {
+  /* background-color: red; */
+  z-index: 99;
+}
+
 /*-------------------------------- page2--------------------------------- */
 
 #page2 {
@@ -201,20 +216,18 @@ body {
   left: 29%;
   position: relative;
   background-color: tomato;
+  background-image: url(./images/Showreel-2022-preview-1.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
-#video-cursor {
-  background-color: #ffa63d;
-  height: 7vw;
-  width: 7vw;
-  border-radius: 50%;
-  position: relative;
-  top: -10%;
-  left: 70%;
-  z-index: 90;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#video-container video {
+  /* margin-top: -10%; */
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  background-position: center;
+  opacity: 0;
 }
 
 /*----------------------------------- page3 -----------------------------*/
@@ -521,7 +534,353 @@ body {
   font-weight: 500;
 }
 
-/* ._canvas_container {
-  z-index: 99999 !important;
-  pointer-events: none;
-} */
+/*--------------------------- media queries -----------------------------*/
+
+@media (max-width: 600px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #151515; /* Horizontal scroll ko disable karne ke liye */
+  }
+  /*----------------------- page1----------------------------------- */
+  #page1 {
+    height: 60vh;
+    width: 100%;
+    background-color: #151515;
+    padding-top: 1px;
+  }
+  /* ----------------nav------------------------ */
+
+  #page1 #nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 6vw 6vw;
+    position: fixed;
+    width: 100%;
+    /* background-color: red; */
+    top: 0;
+  }
+  #nav-part2 {
+    display: none;
+  }
+
+  /*-------------------- hero ----------------------------*/
+
+  .hero {
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin-left: 5%;
+    height: fit-content;
+    overflow: hidden;
+  }
+
+  .hero:nth-child(2) {
+    margin-top: 15vh;
+  }
+
+  .hero h1 {
+    font-size: 10vw;
+    line-height: 10vw;
+  }
+
+  #hero3 h2 {
+    font-size: 9vw;
+    line-height: 7.2vw;
+  }
+
+  #hero3 h1 {
+    border-bottom: 2px solid white;
+  }
+  /* --------------------------------page2------------------------------- */
+  #page2 {
+    padding-top: 1vh;
+    height: 50vh;
+    width: 100%;
+    position: relative;
+    background-color: #151515;
+  }
+
+  #video-container {
+    height: 40vh;
+    width: 100vw;
+    left: 0;
+    position: relative;
+    background-color: tomato;
+    background-image: url(./images/Showreel-2022-preview-1.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  /*---------------------------- page3--------------------------------- */
+
+  #page3 {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #151515;
+    position: relative;
+    padding: 2vh 5vw;
+    margin-top: 1vh;
+  }
+
+  #page3 h1 {
+    font-size: 10vw;
+    position: relative;
+    margin-left: 0;
+    padding-bottom: 2vw;
+  }
+
+  #page3 .underline {
+    margin-left: 0;
+    margin-bottom: 6vw;
+  }
+
+  #image-div-container {
+    /* background-color: violet; */
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .image-div {
+    position: relative;
+    overflow: hidden;
+    height: 100vw;
+    width: 90vw;
+    margin-bottom: 5vw;
+    /* background-color: aqua; */
+  }
+
+  .image-div:nth-child(1) {
+    height: 100vw;
+    width: 90vw;
+  }
+
+  .image-div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .page3-circle1 {
+    position: relative;
+    height: 23vw;
+    width: 23vw;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20vh;
+    margin-left: 7vw;
+    display: none;
+  }
+
+  .page3-circle1 svg {
+    height: 30%;
+  }
+
+  .page3-circle2 {
+    position: relative;
+    height: 23vw;
+    width: 23vw;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+  }
+
+  /*----------------------------- page4-------------------------------- */
+
+  #page4 {
+    padding: 3vh 5vw;
+    min-height: 100vh;
+    width: 100%;
+    /* background-color: rgb(51, 51, 51); */
+    position: relative;
+  }
+
+  #page4-content {
+    width: 100%;
+    left: 0;
+    position: relative;
+  }
+
+  #page4-content h1 {
+    font-size: 11vw;
+  }
+
+  #page4-content .underline {
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    margin: 5vw 0;
+  }
+
+  #page4-content > p {
+    font-size: 6vw;
+    width: 100%;
+    margin-bottom: 10vw;
+  }
+
+  #page4-flex {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+  }
+
+  #page4-flex img {
+    width: 100%;
+  }
+
+  #page4-flex p {
+    font-size: 5vw;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 5vw;
+  }
+
+  #page4-blue-div {
+    position: relative;
+    background-color: #3f7df4;
+    padding: 2vw 1.5vw;
+    width: 100%;
+    margin-top: 5vw;
+    margin-left: 0;
+    margin-bottom: 20vw;
+  }
+
+  .blue-div-elem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2vw;
+    /* background-color: red; */
+    padding: 7vw 5vw;
+    border-bottom: 1px solid white;
+  }
+
+  .blue-div-elem h4 {
+    font-size: 5vw;
+    font-weight: 700;
+  }
+
+  .blue-div-elem p {
+    font-size: 4vw;
+    width: 50%;
+  }
+
+  /*--------------------- page5 -------------------------------*/
+
+  #page5 {
+    margin-top: 7vw;
+    min-height: 35vh;
+    width: 100%;
+    position: relative;
+  }
+
+  .elem {
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: hidden;
+  }
+
+  .elem h1 {
+    font-size: 10vw;
+    -webkit-text-stroke: 1px white;
+    font-family: "silkserif-light";
+    font-weight: 100;
+    color: transparent;
+    display: inline-block;
+    margin-right: 1.5vw;
+    animation-name: infiscroll;
+    animation-duration: 13s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes infiscroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - 1.5vw));
+    }
+  }
+
+  .elem2 {
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: hidden;
+  }
+
+  .elem2 h1 {
+    font-size: 10vw;
+    -webkit-text-stroke: 1px white;
+    font-weight: 100;
+    color: transparent;
+    display: inline-block;
+    transform: translateX(calc(-100% - 1.6vw));
+    margin-right: 1.5vw;
+    animation-name: infiscroll;
+    animation-duration: 13s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+  }
+
+  /*----------------- footer-------------------------------- */
+
+  #footer {
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    left: 0;
+    padding: 5vw 5vw;
+  }
+
+  #footer h1 {
+    font-size: 13vw;
+  }
+  .underline {
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    margin: 8vw 0;
+  }
+
+  #footer-div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-right: 0;
+    padding-top: 4vw;
+    margin-bottom: 6vw;
+  }
+
+  #footer-div h6 {
+    font-size: 5vw;
+    margin-top: 8vw;
+    margin-bottom: 8vw;
+  }
+
+  #footer-div h5 {
+    font-size: 7vw;
+    margin: 0.2vh 0;
+    font-weight: 500;
+  }
+}
